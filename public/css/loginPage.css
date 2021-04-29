@@ -1,0 +1,14 @@
+/* PageLogin */
+
+.container .form-signin {
+    max-width: 400px;
+    margin: auto;
+}
+.form-control {
+    margin-top: 10px;
+}
+
+.btn-primary {
+    width: 100%;
+    margin-top: 10px;
+}
