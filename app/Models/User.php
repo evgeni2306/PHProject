@@ -11,6 +11,22 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+
+    public function roleId()
+    {
+        return $this->hasOne('App\role');
+    }
+
+    public function CreatorId()
+    {
+        return $this->belongsTo('App\Posts', 'id', 'creatorId');
+    }
+
+    public function OwnerId()
+    {
+        return $this->belongsTo('App\Posts', 'id', 'ownerId');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -18,8 +34,12 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'secondName',
         'password',
+        'dateOfBirth',
+        'photo',
+        'roleId',
+
     ];
 
     /**
@@ -29,7 +49,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
+
     ];
 
     /**
@@ -38,6 +58,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'dateOfBirth' => 'datetime',
     ];
 }
