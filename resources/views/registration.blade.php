@@ -16,10 +16,10 @@
         @csrf
         <h2>Регистрация</h2>
 {{--      <div class="alert alert-success" role="alert"></div> --}}
-{{--        @error('error')
-       <div class="alert alert-danger" role="alert"></div>
-        @enderror--}}
-        <input type="text" name="username" class="form-control" placeholder="username" required>
+        @error('email')
+       <div class="alert alert-danger" role="alert">{{$message}}</div>
+        @enderror
+{{--        <input type="text" name="username" class="form-control" placeholder="username" required>--}}
         <input type="text" name="email" class="form-control" placeholder="e-mail" required>
         <input type="text" name="password" class="form-control" placeholder="password" required>
         <button type="submit" class="btn btn-primary">Зарегистрироваться</button>

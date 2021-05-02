@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -34,12 +36,8 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'secondName',
-        'password',
-        'dateOfBirth',
-        'photo',
-        'roleId',
-
+        'email',
+        'password'
     ];
 
     /**
@@ -49,7 +47,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-
+        'remember_token'
     ];
 
     /**
@@ -57,7 +55,13 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'dateOfBirth' => 'datetime',
-    ];
+//    protected $casts = [
+//        'dateOfBirth' => 'datetime',
+//    ];
+
+    /* Хешируем пароль пользователя с помощью встроенного фасада */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
 }

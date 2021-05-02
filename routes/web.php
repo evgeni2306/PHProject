@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('pageMain');
-});
+});*/
+
+Route::view('/', 'login');
+
 Route::get('/account', function () {
     return view('pageAccount');
 });
@@ -26,8 +29,10 @@ Route::get('/pageMain', function () {
     return view('pageMain');
 });
 
+// Routes для регистрации - авторизации
+
 Route::name('user.')->group(function () {
-    Route::view('/private', 'private')->middleware('auth')->name('private');
+    Route::view('/private', 'private')->middleware('auth')->name("private");
 
     Route::get('/login', function () {
         if (\Illuminate\Support\Facades\Auth::check()) {
@@ -36,9 +41,12 @@ Route::name('user.')->group(function () {
         return view('login');
     })->name('login');
 
-//    Route::post('/login', []);
+    Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
 
-//    Route::get('/logout', [])->name('logout');
+    Route::get('/logout', function () {
+        \Illuminate\Support\Facades\Auth::logout();
+        return redirect('/');
+    })->name('logout');
 
     Route::get('/registration', function () {
         if (\Illuminate\Support\Facades\Auth::check()) {
@@ -46,6 +54,8 @@ Route::name('user.')->group(function () {
         }
         return view('registration');
     })->name('registration');
+
+    Route::post('/registration', [\App\Http\Controllers\RegisterController::class, 'save']);
 });
 
-// Route::post('/registration', []);
+

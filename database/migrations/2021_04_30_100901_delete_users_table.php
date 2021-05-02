@@ -14,16 +14,17 @@ class DeleteUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('secondName');
-            $table->string('password');
-            $table->date('dateOfBirth');
-
-            $table->string('photo');
-            $table->integer('roleId');
-            $table->boolean('status');
-            $table->boolean('online');
+            $table->increments('id');
+/*            $table->string('name')->nullable(true);
+            $table->string('secondName')->nullable(true);*/
+            $table->string('email', 255)->nullable(false)->unique('email');
+            $table->string('password', 255)->nullable(false);
+            $table->string('remember_token', 100)->nullable(true);
+/*            $table->date('dateOfBirth')->nullable(true);
+            $table->string('photo')->nullable('true');
+            $table->integer('roleId')->nullable(true);
+            $table->boolean('status')->nullable(true);
+            $table->boolean('online')->nullable(true);*/
             $table->timestamps();
         });
     }
