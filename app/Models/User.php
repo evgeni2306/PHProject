@@ -6,10 +6,28 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+
+    public function roleId()
+    {
+        return $this->hasOne('App\role');
+    }
+
+    public function CreatorId()
+    {
+        return $this->belongsTo('App\Posts', 'id', 'creatorId');
+    }
+
+    public function OwnerId()
+    {
+        return $this->belongsTo('App\Posts', 'id', 'ownerId');
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +37,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'password'
     ];
 
     /**
@@ -29,7 +47,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
+        'remember_token'
     ];
 
     /**
@@ -37,7 +55,13 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+//    protected $casts = [
+//        'dateOfBirth' => 'datetime',
+//    ];
+
+    /* Хешируем пароль пользователя с помощью встроенного фасада */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = Hash::make($password);
+    }
 }
