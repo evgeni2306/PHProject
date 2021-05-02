@@ -22,7 +22,7 @@
         <input type="text" name="email" class="form-control" placeholder="email" required>
         <input type="text" name="password" class="form-control" placeholder="password" required>
         <button type="submit" class="btn btn-primary">Войти</button>
-        <a href="" class="btn btn-primary">Зарегистрироваться</a>
+        <a href="/registration" class="btn btn-primary">Зарегистрироваться</a>
     </form>
 </div>
 </body>
