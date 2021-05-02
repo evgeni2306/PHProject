@@ -23,7 +23,7 @@
         <input type="text" name="email" class="form-control" placeholder="e-mail" required>
         <input type="text" name="password" class="form-control" placeholder="password" required>
         <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
-        <a href="" class="btn btn-primary">Авторизироваться</a>
+        <a href="/login" class="btn btn-primary">Авторизироваться</a>
     </form>
 </div>
 </body>
