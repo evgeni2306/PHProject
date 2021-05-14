@@ -19,9 +19,10 @@
         @error('email')
        <div class="alert alert-danger" role="alert">{{$message}}</div>
         @enderror
-{{--        <input type="text" name="username" class="form-control" placeholder="username" required>--}}
+        <input type="text" name="name" class="form-control" placeholder="Имя" required>
+        <input type="text" name="surname" class="form-control" placeholder="Фамилия" required>
         <input type="text" name="email" class="form-control" placeholder="e-mail" required>
-        <input type="text" name="password" class="form-control" placeholder="password" required>
+        <input type="password" name="password" class="form-control" placeholder="Пароль" required>
         <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
         <a href="/login" class="btn btn-primary">Авторизироваться</a>
     </form>

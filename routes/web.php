@@ -25,9 +25,9 @@ Route::view('/', 'login');
 Route::get('/account', function () {
     return view('pageAccount');
 });
-Route::get('/pageEditor', function () {
-    return view('pageEditor');
-});
+//Route::get('/pageEditor', function () {
+//    return view('pageEditor');
+//});
 Route::get('/pageMain', function () {
     return view('pageMain');
 });
@@ -58,8 +58,15 @@ Route::name('user.')->group(function () {
         return view('registration');
     })->name('registration');
 
-    Route::post('/registration', [RegisterController::class, 'save']);
+    Route::get('/pageEditor', function () {
+        if (!Auth::check()) {
+            return redirect(\route('user.login'));
+        }
+        return view('PageEditor');
+    })->name('pageEditor');
 
+    Route::post('/registration', [RegisterController::class, 'save']);
+    Route::post('/pageEditor', [\App\Http\Controllers\EditorController::class, 'update']);
 });
 
 
