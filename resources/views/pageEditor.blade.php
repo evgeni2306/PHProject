@@ -17,6 +17,7 @@
             <input value='' class='inpttext' type='text' name='surname' placeholder="Введите фамилию"><br>
             <input value='' class='inpttext' type='date' name='birthday' placeholder="Укажите дату рождения"><br>
             <input value='' class='inpttext' type='text' name='city' placeholder="Укажите город"><br>
+            <input type="file" name="photo" class="inpttext"  /><br />
 {{--            <input type="file" class='inpttext' name='photo'/><br/>--}}
             <input class='inpttext' type='submit' value='Сохранить'>
         </form>

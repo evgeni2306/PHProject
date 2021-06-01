@@ -14,7 +14,7 @@ class DeleteUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id')->unsigned();
             $table->string('name',255)->nullable(false);
             $table->string('surname',255)->nullable(false);
             $table->string('city',255)->nullable(false);

@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
-
 class EditorController extends Controller
 {
     public function update(Request $request)
@@ -19,10 +18,18 @@ class EditorController extends Controller
             'surname'=>'required',
             'city' =>'required',
             'birthday'=>'required',
-//            'photo'=>'required',
+            'photo'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 //            'email' => 'required|email',
         ]);
-        $user = User::where('id',3)->update($request->all());
+        $imageName = time().'.'.$request->photo->extension();
+        $validateFields['photo']=$imageName;
+        $request->photo->move(public_path('images'), $imageName);
+        $_SESSION['name']=$validateFields['name'];
+        $_SESSION['surname']=$validateFields['surname'];
+        $_SESSION['birthday']=$validateFields['birthday'];
+        $_SESSION['city']=$validateFields['city'];
+        $_SESSION['avatar']=$imageName;
+        $user = User::where('id',$_SESSION['id'])->update($validateFields);
         return redirect(route('user.private'));
     }
 }

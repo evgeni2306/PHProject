@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?// session_start() ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,11 +11,11 @@
 <main>
 <?require 'html/header.html'?>
     <div class='user-interface'>
-        <img class='avatar' src='/images/avatar.jpg' alt=''>
+        <img class='avatar' src='/images/<? echo $_SESSION['avatar']?>' alt=''>
         <div  class ='user-information'>
-            <h1 >имя фамилия</h1>
-            <h2 >День рождения: дата</h2>
-            <h2 >Город: город</h2>
+            <h1 ><?  echo $_SESSION['name'].' '.$_SESSION['surname']; ?></h1>
+            <h2 >День рождения: <? echo $_SESSION['birthday']; ?></h2>
+            <h2 >Город: <? echo $_SESSION['city']   ; ?></h2>
         </div>
         <button class='edit'><a style=' text-decoration: none; ' href="pageEditor">Редактировать</a></button>
         <form action="" class='addcomment' method="post" enctype="multipart/form-data">

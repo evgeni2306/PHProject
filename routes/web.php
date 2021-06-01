@@ -4,7 +4,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+session_start();
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,6 +47,7 @@ Route::name('user.')->group(function () {
     Route::post('/login', [LoginController::class, 'login']);
 
     Route::get('/logout', function () {
+        session_destroy();
         Auth::logout();
         return redirect('/');
     })->name('logout');
