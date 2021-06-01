@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 class RegisterController extends Controller
 {
     /*    Запускаем проверку введенных данных пользователем (поля непустые)
@@ -17,13 +18,13 @@ class RegisterController extends Controller
             return redirect(route('user.private'));
 
         $validateFields = $request->validate([
-            'name'=>'required',
-            'surname' =>'required',
+            'name' => 'required',
+            'surname' => 'required',
             'email' => 'required|email',
             'password' => 'required'
         ]);
         $validateFields['city'] = 'Не указан';
-        $validateFields['photo']='avatar.jpg';
+        $validateFields['photo'] = 'avatar.jpg';
 
         if (User::where('email', $validateFields['email'])->exists()) {
             return redirect(route('user.registration'))->withErrors([
@@ -32,13 +33,13 @@ class RegisterController extends Controller
         }
         $user = User::create($validateFields);
         if ($user) {
-            $_SESSION['name']=$validateFields['name'];
-            $_SESSION['surname']=$validateFields['surname'];
-            $_SESSION['birthday']='Не указан';
-            $_SESSION['city']='Не указан';
-            $_SESSION['avatar']='avatar.jpg';
-            $userr = DB::table('users')->where('email' ,$validateFields['email'])->first();
-            $_SESSION['id']=$userr->id;
+            $_SESSION['name'] = $validateFields['name'];
+            $_SESSION['surname'] = $validateFields['surname'];
+            $_SESSION['birthday'] = 'Не указан';
+            $_SESSION['city'] = 'Не указан';
+            $_SESSION['avatar'] = 'avatar.jpg';
+            $userr = DB::table('users')->select('id')->where('email', $validateFields['email'])->first();
+            $_SESSION['id'] = $userr->id;
             Auth::login($user);
             return redirect(route('user.login'))->withErrors([
                 'email' => 'Произошла ошибка при сохранении пользоватея'

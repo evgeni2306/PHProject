@@ -4,6 +4,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 session_start();
 /*
 |--------------------------------------------------------------------------
@@ -15,25 +16,19 @@ session_start();
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-/*Route::get('/', function () {
-    return view('pageMain');
-});*/
-
 Route::view('/', 'login');
 
-Route::get('/account', function () {
-    return view('pageAccount');
-});
-//Route::get('/pageEditor', function () {
-//    return view('pageEditor');
+Route::get('/id={idd}', [\App\Http\Controllers\AnotherPageController::class, 'getAnotherPage']);
+
+//Route::get('/{aleas}', function () {
+//    if (Auth::check()) {
+//        return redirect(\route('user.private'));
+//    }
+//    return view('login');
+//    //Этот роут будет кидать на страницу логина любые роуты, которых нету// недоделан
 //});
-Route::get('/pageMain', function () {
-    return view('pageMain');
-});
 
 // Routes для регистрации - авторизации
-
 Route::name('user.')->group(function () {
     Route::view('/private', 'private')->middleware('auth')->name("private");
 
