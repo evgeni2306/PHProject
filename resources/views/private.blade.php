@@ -30,7 +30,14 @@
     </section>
     <!--    тут будет выводится имя текущего пользователя(нужно для комментариев)-->
     <h1 class='username'><?echo $_SESSION['name'].' '.$_SESSION['surname']; ?></h1>
+    @section('content')<!-- секция с постами -->
+    <?php
+        use  App\Http\Controllers\PostController;
+        $pc = new PostController();
+        //$allPostsOnPage = $pc.index($_SESSION['id']);//хз как взять ид владельца страницы
+    ?>
+    @endsection
 </main>
-<script src="/js/addComment.js"></script>
+
 </body>
 </html>
