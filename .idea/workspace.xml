@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ba0f2f6-69dd-45b4-ac0b-72d9cb33811c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/registration.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/inc/header-private.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/private/user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="6ba0f2f6-69dd-45b4-ac0b-72d9cb33811c" name="Default Changelist" comment="Отрефакторил шаблонизацию и представления.">
+      <change afterPath="$PROJECT_DIR$/resources/views/private/search-page.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/html/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/html/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/login.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/registration.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -158,6 +149,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\OpenServer\OpenServer\domains\kirinnikitahost\PHProject\resources\views\auth" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
@@ -172,8 +168,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1623993020931</updated>
-      <workItem from="1623993028243" duration="4127000" />
+      <workItem from="1623993028243" duration="6566000" />
     </task>
+    <task id="LOCAL-00001" summary="Отрефакторил шаблонизацию и представления.">
+      <created>1623997299132</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623997299132</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,5 +193,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Отрефакторил шаблонизацию и представления." />
+    <option name="LAST_COMMIT_MESSAGE" value="Отрефакторил шаблонизацию и представления." />
   </component>
 </project>

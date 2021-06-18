@@ -16,9 +16,13 @@ session_start();
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/', 'login');
+Route::view('/', 'auth.login')->name('home');
 
 Route::get('/id={idd}', [\App\Http\Controllers\AnotherPageController::class, 'getAnotherPage']);
+Route::get('/search', function () {
+    return view('private.search-page');
+});
+
 
 //Route::get('/{aleas}', function () {
 //    if (Auth::check()) {
@@ -33,7 +37,8 @@ Route::name('user.')->group(function () {
     Route::view('/private', 'private.user')->middleware('auth')->name("private");
 
     Route::get('/login', function () {
-        if (Auth::check()) {
+        if (Auth::check())
+        {
             return redirect(\route('user.private'));
         }
         return view('auth.login');
@@ -48,19 +53,20 @@ Route::name('user.')->group(function () {
     })->name('logout');
 
     Route::get('/registration', function () {
-        if (Auth::check()) {
+        if (Auth::check())
+        {
             return redirect(\route('user.private'));
         }
         return view('auth.registration');
     })->name('registration');
 
     Route::get('/pageEditor', function () {
-        if (!Auth::check()) {
+        if (!Auth::check())
+        {
             return redirect(\route('user.login'));
         }
         return view('PageEditor');
     })->name('pageEditor');
-
     Route::post('/registration', [RegisterController::class, 'save']);
     Route::post('/pageEditor', [\App\Http\Controllers\EditorController::class, 'update']);
 });
