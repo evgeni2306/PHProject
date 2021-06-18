@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="/css/pageAndEditor.css"/>
-</head>
-<body>
 <div class='header'>
     <? if(Auth::check()){?>
     <button class='header-button mystr-button'><a style=' text-decoration: none; ' href="private">
-        Моя страница</a></button>
+            Моя страница</a></button>
     <button class='header-button search-button'><a style=' text-decoration: none; ' href="">Поиск</a></button>
     <button class='header-button exit-button'><a style=' text-decoration: none; ' href="/logout">Выход</a></button>
     <?}?>
     <? if(!Auth::check()){?>
     <button class='header-button mystr-button'><a style=' text-decoration: none; ' href="registration">
-        Регистрация</a></button>
+            Регистрация</a></button>
     <button class='header-button search-button'><a style=' text-decoration: none; ' href="">Поиск</a></button>
     <button class='header-button exit-button'><a style=' text-decoration: none; ' href="/login">Вход</a></button>
     <?}?>
 </div>
-</body>
-</html>

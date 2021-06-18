@@ -30,13 +30,13 @@ Route::get('/id={idd}', [\App\Http\Controllers\AnotherPageController::class, 'ge
 
 // Routes для регистрации - авторизации
 Route::name('user.')->group(function () {
-    Route::view('/private', 'private')->middleware('auth')->name("private");
+    Route::view('/private', 'private.user')->middleware('auth')->name("private");
 
     Route::get('/login', function () {
         if (Auth::check()) {
             return redirect(\route('user.private'));
         }
-        return view('login');
+        return view('auth.login');
     })->name('login');
 
     Route::post('/login', [LoginController::class, 'login']);
@@ -51,7 +51,7 @@ Route::name('user.')->group(function () {
         if (Auth::check()) {
             return redirect(\route('user.private'));
         }
-        return view('registration');
+        return view('auth.registration');
     })->name('registration');
 
     Route::get('/pageEditor', function () {
