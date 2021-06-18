@@ -28,6 +28,7 @@ class AnotherPageController extends Controller
         $_SESSION['anotherBirthday'] = $request->birthday;
 //        $_SESSION['anotherId'] = $request->id;
         $_SESSION['anotherAvatar'] = $request->photo;
+        $_SESSION['anotherId'] = $id;
         return view('anotherPage');
 
 
