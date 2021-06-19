@@ -23,7 +23,7 @@ class SearchController extends Controller
         get();
         if (count($users) != 0)
         {
-            return view('private.search.search-result', ['users' => $users])->with('succes', 'Были найдены следующие пользователи');
+            return view('private.search.search-result', ['users' => $users])->with('success', 'Были найдены следующие пользователи');
         }
         return redirect()->route('search-page')->withErrors('Пользователь не найден!');
 //        dd(count($users);

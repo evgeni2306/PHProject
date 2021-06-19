@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ba0f2f6-69dd-45b4-ac0b-72d9cb33811c" name="Default Changelist" comment="Реализована возможность перехода на страницу пользователя, найденного в поиске.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AnotherPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AnotherPageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EditorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EditorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" afterDir="false" />
+    <list default="true" id="6ba0f2f6-69dd-45b4-ac0b-72d9cb33811c" name="Default Changelist" comment="Добавлено сообщение о не найденных по запросу пользователях.">
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/private/search/search-result.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/private/search/search-result.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/private/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/private/user.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +178,7 @@
       <updated>1623993020931</updated>
       <workItem from="1623993028243" duration="11410000" />
       <workItem from="1624004613742" duration="5165000" />
-      <workItem from="1624091282626" duration="7718000" />
+      <workItem from="1624091282626" duration="8480000" />
     </task>
     <task id="LOCAL-00001" summary="Отрефакторил шаблонизацию и представления.">
       <created>1623997299132</created>
@@ -215,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624098930855</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Добавлено сообщение о не найденных по запросу пользователях.">
+      <created>1624101034804</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1624101034804</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,6 +238,7 @@
     <MESSAGE value="Подготовлена форма для поиска. Написаны шаблоны и роуты." />
     <MESSAGE value="Реализована логика поиска." />
     <MESSAGE value="Реализована возможность перехода на страницу пользователя, найденного в поиске." />
-    <option name="LAST_COMMIT_MESSAGE" value="Реализована возможность перехода на страницу пользователя, найденного в поиске." />
+    <MESSAGE value="Добавлено сообщение о не найденных по запросу пользователях." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлено сообщение о не найденных по запросу пользователях." />
   </component>
 </project>
