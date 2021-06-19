@@ -16,9 +16,12 @@ session_start();
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/', 'login');
+Route::view('/', 'auth.login')->name('home');
 
-Route::get('/id={idd}', [\App\Http\Controllers\AnotherPageController::class, 'getAnotherPage']);
+Route::get('/id={id}', [\App\Http\Controllers\AnotherPageController::class, 'getAnotherPage']);
+Route::get('/search-page', 'App\Http\Controllers\SearchController@showPage')->name('search-page');
+Route::get('/search', 'App\Http\Controllers\SearchController@search')->name('search');
+
 
 //Route::get('/{aleas}', function () {
 //    if (Auth::check()) {
@@ -30,13 +33,14 @@ Route::get('/id={idd}', [\App\Http\Controllers\AnotherPageController::class, 'ge
 
 // Routes для регистрации - авторизации
 Route::name('user.')->group(function () {
-    Route::view('/private', 'private')->middleware('auth')->name("private");
+    Route::view('/private', 'private.user')->middleware('auth')->name("private");
 
     Route::get('/login', function () {
-        if (Auth::check()) {
+        if (Auth::check())
+        {
             return redirect(\route('user.private'));
         }
-        return view('login');
+        return view('auth.login');
     })->name('login');
 
     Route::post('/login', [LoginController::class, 'login']);
@@ -48,23 +52,20 @@ Route::name('user.')->group(function () {
     })->name('logout');
 
     Route::get('/registration', function () {
-        if (Auth::check()) {
+        if (Auth::check())
+        {
             return redirect(\route('user.private'));
         }
-        return view('registration');
+        return view('auth.registration');
     })->name('registration');
 
     Route::get('/pageEditor', function () {
-        if (!Auth::check()) {
+        if (!Auth::check())
+        {
             return redirect(\route('user.login'));
         }
         return view('PageEditor');
     })->name('pageEditor');
-
-    Route::get('post/create', 'PostController@create')->name('post.create');
-  
-    Route::post('/registration', [RegisterController::class, 'save']);
-    Route::post('/pageEditor', [\App\Http\Controllers\EditorController::class, 'update']);
-});
+}
 
 
