@@ -18,7 +18,7 @@ session_start();
 */
 Route::view('/', 'auth.login')->name('home');
 
-Route::get('/id={idd}', [\App\Http\Controllers\AnotherPageController::class, 'getAnotherPage']);
+Route::get('/id={id}', [\App\Http\Controllers\AnotherPageController::class, 'getAnotherPage']);
 Route::get('/search-page', 'App\Http\Controllers\SearchController@showPage')->name('search-page');
 Route::get('/search', 'App\Http\Controllers\SearchController@search')->name('search');
 

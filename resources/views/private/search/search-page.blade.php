@@ -28,7 +28,10 @@
             @foreach($users as $user)
                 <tr>
                     <td>{{$user->id}}</td>
-                    <td>{{$user->name . ' ' . $user->surname}}</td>
+                    <td><a href="/id={{$user->id}}">
+                            {{$user->name . ' ' . $user->surname}}
+                        </a>
+                    </td>
                     @if($user->birthday)
                         <td>{{$user->birthday}}</td>
                     @else
