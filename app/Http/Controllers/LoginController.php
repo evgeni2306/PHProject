@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -26,7 +26,7 @@ class LoginController extends Controller
             $_SESSION['birthday'] = $user->birthday;
             $_SESSION['id'] = $user->id;
             $_SESSION['avatar'] = $user->photo;
-            return redirect()->intended(route('user.private'));
+            return redirect()->intended(route('user.private'))->with('success', 'Вы успешно вошли в систему!');
         }
         return redirect(route('user.login'))->withErrors([
             'email' => 'Неверное имя пользователя или пароль'

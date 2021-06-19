@@ -2,6 +2,7 @@
 @section('title'){{'Моя страница'}}@endsection
 @section('content')
     @include('inc.header-private')
+    @include('inc.messages')
     <div class='user-interface'>
         <img class='avatar' src='/images/<? echo $_SESSION['avatar']?>' alt=''>
         <div class='user-information'>

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ba0f2f6-69dd-45b4-ac0b-72d9cb33811c" name="Default Changelist" comment="Реализована логика поиска.">
+    <list default="true" id="6ba0f2f6-69dd-45b4-ac0b-72d9cb33811c" name="Default Changelist" comment="Реализована возможность перехода на страницу пользователя, найденного в поиске.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/private/search/search-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/private/search/search-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AnotherPageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AnotherPageController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EditorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EditorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/private/search/search-result.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/private/search/search-result.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/private/user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/private/user.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +185,7 @@
       <updated>1623993020931</updated>
       <workItem from="1623993028243" duration="11410000" />
       <workItem from="1624004613742" duration="5165000" />
-      <workItem from="1624091282626" duration="5605000" />
+      <workItem from="1624091282626" duration="7718000" />
     </task>
     <task id="LOCAL-00001" summary="Отрефакторил шаблонизацию и представления.">
       <created>1623997299132</created>
@@ -203,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624095932748</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Реализована возможность перехода на страницу пользователя, найденного в поиске.">
+      <created>1624098930855</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1624098930855</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +237,7 @@
     <MESSAGE value="Отрефакторил шаблонизацию и представления." />
     <MESSAGE value="Подготовлена форма для поиска. Написаны шаблоны и роуты." />
     <MESSAGE value="Реализована логика поиска." />
-    <option name="LAST_COMMIT_MESSAGE" value="Реализована логика поиска." />
+    <MESSAGE value="Реализована возможность перехода на страницу пользователя, найденного в поиске." />
+    <option name="LAST_COMMIT_MESSAGE" value="Реализована возможность перехода на страницу пользователя, найденного в поиске." />
   </component>
 </project>

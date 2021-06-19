@@ -13,7 +13,7 @@
             </div>
         </form>
     </div>
-    @isset($users)
+    @if(isset($users))
         <div class="container">
             <h3>Найденные пользователи</h3>
             <table class="table table-striped table-hover">
@@ -42,5 +42,5 @@
                 </tbody>
             </table>
         </div>
-    @endisset
+    @endif
 @endsection
