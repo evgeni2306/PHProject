@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ba0f2f6-69dd-45b4-ac0b-72d9cb33811c" name="Default Changelist" comment="Добавлено сообщение о не найденных по запросу пользователях.">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SearchController.php" afterDir="false" />
-    </list>
+    <list default="true" id="6ba0f2f6-69dd-45b4-ac0b-72d9cb33811c" name="Default Changelist" comment="Добавлено сообщение о не найденных по запросу пользователях." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
