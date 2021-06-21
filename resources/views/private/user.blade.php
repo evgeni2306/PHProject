@@ -28,7 +28,17 @@ echo $_SESSION['avatar']?>' alt=''>
         <ol class='commentslist'>
         
         @foreach($comments as $comment)
-            <li>{{$comment->Text}}</li>
+            <li>
+            {{$comment->Text}}  
+
+            <form action="{{route('user.post.delete')}}" class='deletecomment' method="post" enctype="multipart/form-data">
+            @csrf<input type="hidden" name='id' value="<?echo $comment->id?>">
+            <button class='deletecommentbutton' type="submit">Удалить</button>
+            </form>
+            
+            Автор: {{ $comment->name }}
+            Лайки: {{ $comment->Likes }}
+            </li>
         @endforeach
         
         </ol>

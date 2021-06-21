@@ -67,6 +67,8 @@ Route::name('user.')->group(function () {
         return view('PageEditor');
     })->name('pageEditor');
     Route::post('post/create', [\App\Http\Controllers\PostController::class, 'create'])->name('post.create');
+    Route::post('post/delete', [\App\Http\Controllers\PostController::class, 'delete'])->name('post.delete');
+    Route::post('post/like', [\App\Http\Controllers\PostController::class, 'like'])->name('post.like');
     Route::post('/registration', [RegisterController::class, 'save']);
     Route::post('/pageEditor', [\App\Http\Controllers\EditorController::class, 'update']);
 });

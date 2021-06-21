@@ -9,7 +9,8 @@
 </head>
 <body>
 <main>
-    <?require 'html/header.html'?>
+    <?require 'html/header.html';
+    use App\Http\Controllers\PostController;?>
     <div class='user-interface'>
         <img class='avatar' src='/images/<? echo $_SESSION['anotherAvatar']?>' alt=''>
         <div  class ='user-information'>
@@ -18,14 +19,27 @@
             <h2 >Город: <? echo $_SESSION['anotherCity']   ; ?></h2>
         </div>
         <? if(Auth::check()){?>
-        <form action="" class='addcomment' method="post" enctype="multipart/form-data">
+        <form action="{{route('user.post.create')}}" class='addcomment' method="post" enctype="multipart/form-data">
             <input type="text" class='inptcomment' name="Comment" placeholder="Написать комментарий"/>
+            @csrf<input type="hidden" name='creatorId' value="<?echo $_SESSION['id']?>">
+            @csrf<input type="hidden" name='ownerId' value="<?echo $_SESSION['anotherId']?>">
             <button class='addcommentbutton' type="submit" >Опубликовать</button>
         </form><?}?>
     </div>
-
+    <?php $comments = PostController::index($_SESSION['anotherId'])?>
     <section>
         <ol class='commentslist'>
+
+        @foreach($comments as $comment)
+            <li>
+            {{$comment->Text}}  
+
+            
+            Автор: {{ $comment->name }}
+            Лайки: {{ $comment->Likes }}
+            </li>
+        @endforeach
+
         </ol>
     </section>
     <!--    тут будет выводится имя текущего пользователя(нужно для комментариев)-->

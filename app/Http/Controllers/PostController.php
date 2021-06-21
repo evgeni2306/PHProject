@@ -30,9 +30,9 @@ class PostController extends Controller{
 
     public static function index($ownerId)
     {
-        //$allPostsOnPage =
-        return DB::table('posts')->where('OwnerId',$ownerId)->orderBy('created_at')->select('Text')->get();
-        // view('', compact('allPostsOnPage'));
+        
+        return DB::table('posts')->where('OwnerId',$ownerId)->orderBy('created_at', 'desc')->join('users', 'posts.CreatorId', '=', 'users.id')->select('posts.*', 'users.name')->get();
+        
     }
 
     public function edit(Request $request)
@@ -46,9 +46,20 @@ class PostController extends Controller{
         return redirect()-route('');
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
+        $id = $request->input('id');
         Post::find($id)->delete();
-        return redirect()->route('');
+        return redirect()->intended(route('user.private'));
+    }
+
+    public function like(Request $request)
+    {
+        $id = $request->input('id');
+        $post = Post::find($id);
+        $post->Likes += 1;
+
+        $post->save();
+        return redirect()->intended(route('user.private'));
     }
 }
