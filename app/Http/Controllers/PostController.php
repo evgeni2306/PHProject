@@ -20,15 +20,19 @@ class PostController extends Controller{
 
         $newPost = new Post;
         $newPost->creatorId = $creatorId;
+        $newPost->ownerId = $ownerId;
+        $newPost->text = $text;
+        $newPost->likes = 0;
 
         $newPost->save();
-        return redirect()->route('');
+        return redirect()->intended(route('user.private'));
     }
 
-    public function index($ownerId)
+    public static function index($ownerId)
     {
-        $allPostsOnPage = DB::table('posts')->where('OwnerId',$ownerId)->orderBy('created_at');
-        return view('', compact('allPostsOnPage'));
+        //$allPostsOnPage =
+        return DB::table('posts')->where('OwnerId',$ownerId)->orderBy('created_at')->select('Text')->get();
+        // view('', compact('allPostsOnPage'));
     }
 
     public function edit(Request $request)
