@@ -55,12 +55,12 @@ echo $_SESSION['avatar']?>' alt=''>
             </form><br>
 
             @endif
-
+            
             Автор: {{ $comment->name }}<br> 
             Лайки: {{ $comment->Likes }}
             </li>
         @endforeach
-        
+        <?php echo $comments->render(); ?>
         </ol>
     </section>
     <!--    тут будет выводится имя текущего пользователя(нужно для комментариев)-->

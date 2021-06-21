@@ -32,7 +32,7 @@ class PostController extends Controller{
     public static function index($ownerId)
     {
         
-        return DB::table('posts')->where('OwnerId',$ownerId)->orderBy('created_at', 'desc')->join('users', 'posts.CreatorId', '=', 'users.id')->select('posts.*', 'users.name')->get();
+        return DB::table('posts')->where('OwnerId',$ownerId)->orderBy('created_at', 'desc')->join('users', 'posts.CreatorId', '=', 'users.id')->select('posts.*', 'users.name')->paginate(1);
         
     }
 
