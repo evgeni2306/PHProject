@@ -25,7 +25,8 @@ class PostController extends Controller{
         $newPost->likes = 0;
 
         $newPost->save();
-        return redirect()->intended(route('user.private'));
+        //return redirect()->intended(route('user.private'));
+        return redirect()->back();
     }
 
     public static function index($ownerId)
@@ -43,23 +44,17 @@ class PostController extends Controller{
 
         $post->text = $request->input('text');
         $post->save();
-        return redirect()-route('');
+        return redirect()->back();
+        //return redirect()->intended(route('user.private'));
     }
 
     public function delete(Request $request)
     {
         $id = $request->input('id');
         Post::find($id)->delete();
-        return redirect()->intended(route('user.private'));
+        //return redirect()->intended(route('user.private'));
+        return redirect()->back();
     }
 
-    public function like(Request $request)
-    {
-        $id = $request->input('id');
-        $post = Post::find($id);
-        $post->Likes += 1;
-
-        $post->save();
-        return redirect()->intended(route('user.private'));
-    }
+    
 }
