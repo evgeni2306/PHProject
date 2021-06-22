@@ -32,7 +32,7 @@ class PostController extends Controller{
     public static function index($ownerId)
     {
         
-        return DB::table('posts')->where('OwnerId',$ownerId)->orderBy('created_at', 'desc')->join('users', 'posts.CreatorId', '=', 'users.id')->select('posts.*', 'users.name')->paginate(1);
+        return DB::table('posts')->where('OwnerId',$ownerId)->orderBy('created_at', 'desc')->join('users', 'posts.CreatorId', '=', 'users.id')->select('posts.*', 'users.name')->whereNull('deleted_at')->paginate(1);
         
     }
 
@@ -56,5 +56,8 @@ class PostController extends Controller{
         return redirect()->back();
     }
 
-    
+    public function indexReturnInJson($ownerId)
+    {
+        return DB::table('posts')->where('OwnerId',$ownerId)->orderBy('created_at', 'desc')->join('users', 'posts.CreatorId', '=', 'users.id')->select('posts.*', 'users.name')->whereNull('deleted_at')->paginate(1);
+    }
 }

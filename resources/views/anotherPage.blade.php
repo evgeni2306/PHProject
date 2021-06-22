@@ -54,7 +54,7 @@
             Лайки: {{ $comment->Likes }}<br>
             </li>
         @endforeach
-
+        <?php echo $comments->render(); ?>
         </ol>
     </section>
     <!--    тут будет выводится имя текущего пользователя(нужно для комментариев)-->
